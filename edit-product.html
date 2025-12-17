@@ -23,8 +23,7 @@
     <label>Price</label>
     <input id="price" type="number" placeholder="Enter price">
 
-    <label>Stock</label>
-    <input id="stock" type="number" placeholder="Enter stock">
+
 
     <label>Category ID</label>
     <input id="category" type="number" placeholder="Enter category id">
@@ -45,7 +44,6 @@ const id = new URLSearchParams(location.search).get("id");
 
   document.getElementById("name").value = p.name;
   document.getElementById("price").value = p.price;
-  document.getElementById("stock").value = p.stock;
   document.getElementById("category").value = p.categoryId;
   document.getElementById("images").value =
     (p.images || p.imagesURL || []).join(", ");
@@ -57,7 +55,7 @@ async function save() {
       id: Number(id),
       name: document.getElementById("name").value,
       price: Number(document.getElementById("price").value),
-      stock: Number(document.getElementById("stock").value),
+      stock: 1,
       categoryId: Number(document.getElementById("category").value),
       images: document
         .getElementById("images")
