@@ -1,0 +1,257 @@
+:root {
+  /* ---------- Backgrounds ---------- */
+  --bg: #0f0a05;
+  --sidebar: #140b04;
+  --card: rgba(255, 134, 4, 0.08);
+
+  /* ---------- Brand Colors (from FF8604) ---------- */
+  --accent: #ff8604;      /* main */
+  --accent2: #ff9f2e;     /* lighter */
+  --danger: #e64a19;      /* red-orange */
+
+  /* ---------- Text ---------- */
+  --text: #f5f5f4;
+  --muted: #a8a29e;
+
+  /* ---------- UI ---------- */
+  --radius: 16px;
+  --blur: blur(12px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #140b04, #0f0a05);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 260px;
+  background: var(--sidebar);
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #F15826;
+  text-align: center;
+
+  /* stronger text shadow */
+  text-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.8),
+    0 0 10px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(0, 0, 0, 0.4);
+
+  background-image: url("../image/img11.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  padding: 30px 10px;
+  border-radius: 12px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--muted);
+  padding: 14px 18px;
+  border-radius: var(--radius);
+  display: block;
+  margin-bottom: 10px;
+  transition: 0.3s;
+}
+
+.nav a:hover,
+.nav a.active {
+  background: var(--card);
+  color: var(--text);
+}
+
+/* ---------- Main ---------- */
+.main {
+  flex: 1;
+  padding: 40px;
+}
+
+/* ---------- Header ---------- */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 2.2rem;
+}
+
+.header span {
+  color: var(--accent);
+}
+
+/* ---------- Cards ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--card);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  padding: 25px;
+  transition: 0.3s;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(255, 134, 4, 0.15);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.price {
+  color: var(--accent2);
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* ---------- Buttons ---------- */
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+button {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-view {
+  background: var(--accent);
+  color: #140b04;
+}
+
+.btn-edit {
+  background: var(--accent2);
+  color: #140b04;
+}
+
+.btn-delete {
+  background: var(--danger);
+  color: white;
+}
+
+button:hover {
+  filter: brightness(1.1);
+}
+
+/* ---------- Forms ---------- */
+.form {
+  background: var(--card);
+  backdrop-filter: var(--blur);
+  border-radius: var(--radius);
+  padding: 30px;
+  max-width: 600px;
+}
+
+.form h2 {
+  margin-bottom: 20px;
+}
+
+.form input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  border: none;
+  margin-bottom: 15px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.form input::placeholder {
+  color: var(--muted);
+}
+
+.form button {
+  width: 100%;
+  background: var(--accent);
+  color: #140b04;
+  padding: 14px;
+}
+
+/* ---------- Product Details ---------- */
+.details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.details img {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+.details-info h2 {
+  margin-bottom: 20px;
+}
+
+.details-info p {
+  margin-bottom: 10px;
+  color: var(--muted);
+}
+
+/* ---------- Product Gallery ---------- */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#mainImage {
+  width: 100%;
+  border-radius: var(--radius);
+}
+
+.thumbs {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.thumbs img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: 0.3s;
+}
+
+.thumbs img:hover {
+  opacity: 1;
+  border: 2px solid var(--accent);
+}
