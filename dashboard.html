@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo">Admin</div>
+  <div class="nav">
+    <a href="dashboard.html" class="active">Dashboard</a>
+    <a href="products.html">Products</a>
+      <a href="index.html">Back To Home Page</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="header">
+    <h1>Admin <span>Dashboard</span></h1>
+  </div>
+
+  <div class="form">
+    <h2>Add Product</h2>
+    <input id="name" placeholder="Product Name">
+    <input id="price" placeholder="Price">
+    <!-- <input id="stock" placeholder="Stock"> -->
+    <input id="category" placeholder="Category Id">
+    <input id="images" placeholder="Image URLs (comma separated)">
+    <button id="createBtn">Create Product</button>
+  </div>
+</div>
+
+<!-- ✅ api FIRST -->
+<script src="js/api.js"></script>
+
+<!-- ✅ dashboard logic AFTER -->
+<script>
+document.getElementById("createBtn").addEventListener("click", addProduct);
+
+async function addProduct() {
+  try {
+    const payload = {
+      name: document.getElementById("name").value,
+      price: Number(document.getElementById("price").value),
+      stock: 1,
+      categoryId: Number(document.getElementById("category").value),
+      images: document
+        .getElementById("images")
+        .value
+        .split(",")
+        .map(i => i.trim())
+        .filter(i => i)
+    };
+
+    console.log("SENDING:", payload);
+
+    await createProduct(payload);
+
+    alert("Product Created");
+  } catch (err) {
+    console.error(err);
+    alert("Failed to create product");
+  }
+}
+</script>
+
+</body>
+</html>
