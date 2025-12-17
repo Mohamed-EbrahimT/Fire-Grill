@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Product</title>
+  <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo">Admin</div>
+  <div class="nav">
+    <a href="products.html">Back to Products</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="form">
+    <h2>Edit Product</h2>
+
+    <label>Product Name</label>
+    <input id="name" placeholder="Enter product name">
+
+    <label>Price</label>
+    <input id="price" type="number" placeholder="Enter price">
+
+    <label>Stock</label>
+    <input id="stock" type="number" placeholder="Enter stock">
+
+    <label>Category ID</label>
+    <input id="category" type="number" placeholder="Enter category id">
+
+    <label>Images (comma separated URLs)</label>
+    <input id="images" placeholder="https://img1.jpg, https://img2.jpg">
+
+    <button onclick="save()">Update Product</button>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script>
+const id = new URLSearchParams(location.search).get("id");
+
+(async () => {
+  const p = await getProduct(id);
+
+  document.getElementById("name").value = p.name;
+  document.getElementById("price").value = p.price;
+  document.getElementById("stock").value = p.stock;
+  document.getElementById("category").value = p.categoryId;
+  document.getElementById("images").value =
+    (p.images || p.imagesURL || []).join(", ");
+})();
+
+async function save() {
+  try {
+    const payload = {
+      id: Number(id),
+      name: document.getElementById("name").value,
+      price: Number(document.getElementById("price").value),
+      stock: Number(document.getElementById("stock").value),
+      categoryId: Number(document.getElementById("category").value),
+      images: document
+        .getElementById("images")
+        .value
+        .split(",")
+        .map(i => i.trim())
+        .filter(i => i)
+    };
+
+    console.log("UPDATING:", payload);
+
+    await updateProduct(payload);
+
+    alert("Product Updated");
+    location.href = "products.html";
+  } catch (err) {
+    console.error(err);
+    alert("Failed to update product");
+  }
+}
+</script>
+
+</body>
+</html>
