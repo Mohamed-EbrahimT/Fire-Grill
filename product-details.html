@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Details</title>
+  <link rel="stylesheet" href="css/style2.css">
+</head>
+<body>
+
+<div class="sidebar">
+  <div class="logo">Grill</div>
+  <div class="nav">
+    <a href="products.html">Back to Products</a>
+  </div>
+</div>
+
+<div class="main">
+  <div class="details">
+    
+    <!-- IMAGE GALLERY -->
+    <div class="gallery">
+      <img id="mainImage" src="https://via.placeholder.com/600">
+      <div class="thumbs" id="thumbs"></div>
+    </div>
+
+    <!-- INFO -->
+    <div class="details-info" id="info"></div>
+
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script>
+const id = new URLSearchParams(location.search).get("id");
+
+(async () => {
+  const p = await getProduct(id);
+
+  // ✅ FIX: use imagesURL (exact backend name)
+  const images = p.imagesURL;
+
+  if (!images || images.length === 0) {
+    alert("No images found for this product");
+    return;
+  }
+
+  // MAIN IMAGE
+  const mainImage = document.getElementById("mainImage");
+  mainImage.src = images[0];
+  mainImage.style.display = "block";
+
+  // THUMBNAILS
+  document.getElementById("thumbs").innerHTML = images.map(img => `
+    <img src="${img}" onclick="changeImage('${img}')">
+  `).join("");
+
+  // INFO
+  document.getElementById("info").innerHTML = `
+    <h2>${p.name}</h2>
+    <p>Price: $${p.price}</p>
+    <p>Category: ${p.categoryId}</p>
+    <p>Description  : fsddsssssssssssssssssssssssssssss
+      gdfgdfgdf
+      Gdfgfdg</p>
+  `;
+})();
+
+function changeImage(src) {
+  document.getElementById("mainImage").src = src;
+}
+</script>
+
+
+</body>
+</html>
