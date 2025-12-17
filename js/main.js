@@ -35,7 +35,7 @@ document.querySelectorAll(".add-to-cart").forEach(btn => {
   btn.addEventListener("click", () => {
     orderCount++;
     document.getElementById("cart-count").innerText = orderCount;
-    showToast("✅ تمت إضافة منتج جديد إلى سلتك");
+    showToast("✅ New Product Added To Your Cart");
   });
 });
 

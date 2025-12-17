@@ -21,6 +21,7 @@
                     <a href="#">Privacy</a>
                     <a href="#">FAQ</a>
                     <a href="#">Careers</a>
+                    <a href="admin.html">Admin</a>
                 </div>
                 <div class="right">
                     <a href="#">My Wishlist</a>
@@ -40,20 +41,34 @@
                 </div>
                 <div class="nav-links">
                     <a href="#"><span>Home</span></a>
-                    <a href="#"><span>Menu</span></a>
+                    <a href="products-menu.html"><span>Menu</span></a>
+
                     <a href="#"><span>Wishlist</span></a>
                     <a href="#"><span>Orders</span></a>
 
+
+
                     <a href="#"><span>Contact Us</span></a>
+                    <a href="products.html"><span>Admin Dashboard</span></a>
                 </div>
                 <div class="nav-icons">
                     <i class="fas fa-search"></i>
-                    <a href=" login.html #"><i class="fas fa-user"></i></a>
+                    <i class="fas fa-user"></i>
                     <li class="cart-icon">
-                        <div class="cart-icon">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span id="cart-count">0</span>
+                        <div class="cart-wrapper">
+                            <i class="fas fa-shopping-cart" id="cartIcon"></i>
+                            <span class="badge" id="cartCount">0</span>
+
+                            <div class="cart-dropdown" id="cartDropdown">
+                                <h4>Your Orders</h4>
+                                <div class="cart-items" id="cartItems"></div>
+                                <div class="cart-total">
+                                    Total: $<span id="cartTotal">0</span>
+                                </div>
+                                <button class="checkout-btn">Checkout</button>
+                            </div>
                         </div>
+
                         <div id="toast"></div>
                     </li>
                 </div>
@@ -79,6 +94,7 @@
                 <img src="image/img11.png" alt="Model" />
             </div>
         </div>
+
         <div class="section2">
             <div class="parent2">
                 <div class="imge2">
@@ -112,10 +128,8 @@
                 <h6></h6>
                 <h5></h5>
             </div>
-
             <div class="parent3">
                 <i class="fas fa-chevron-left s3-left"></i>
-
                 <div class="card-wrapper">
                     <div class="s3-img1">
                         <div class="s3-info">
@@ -147,7 +161,6 @@
                         <p>$95.99<span>130.00</span></p>
                     </div>
                 </div>
-
                 <div class="card-wrapper">
                     <div class="s3-img1 s3-img3">
                         <div class="s3-info">
@@ -163,7 +176,6 @@
                         <p>$100.99<span>180.00</span></p>
                     </div>
                 </div>
-
                 <div class="card-wrapper">
                     <div class="s3-img1 s3-img4">
                         <div class="s3-info">
@@ -179,10 +191,10 @@
                         <p>$85.99<span>100.00</span></p>
                     </div>
                 </div>
-
                 <i class="fas fa-chevron-right s3-right"></i>
             </div>
         </div>
+
         <div class="section4">
             <div class="parent4">
                 <i class="fas fa-chevron-left s4-right"></i>
@@ -193,7 +205,8 @@
                         artist of the grill. With years of passion and skill, he
                         turns simple ingredients into unforgettable flavors.
                         Every dish he creates tells a story of fire, flavor, and
-                        perfection.
+                        perfection. From the first sizzle to the final touch,
+                        his dedication makes every bite special.
                     </p>
                     <h2></h2>
                     <div class="s4-info">
@@ -204,12 +217,10 @@
                 <i class="fas fa-chevron-right s4-left"></i>
             </div>
         </div>
-
         <div class="section5">
             <h1>you may like</h1>
             <div class="parent3">
                 <i class="fas fa-chevron-left s3-left"></i>
-
                 <div class="card-wrapper2">
                     <div class="s3-img12">
                         <div class="s5-info">
@@ -239,7 +250,6 @@
                         <p>$82.99<span>$110.00</span></p>
                     </div>
                 </div>
-
                 <div class="card-wrapper2">
                     <div class="s3-img12 s5-img14">
                         <div class="s5-info">
@@ -254,7 +264,6 @@
                         <p>$82.99<span>$110.00</span></p>
                     </div>
                 </div>
-
                 <div class="card-wrapper2">
                     <div class="s3-img12 s5-img15">
                         <div class="s5-info">
@@ -269,16 +278,15 @@
                         <p>$82.99<span>$110.00</span></p>
                     </div>
                 </div>
-
                 <i class="fas fa-chevron-right s3-right"></i>
             </div>
         </div>
+
         <div class="section6">
             <div class="s6-info">
                 <h1>latest news</h1>
                 <p class="p11"></p>
             </div>
-
             <div class="parent6">
                 <div class="card-wrapper3">
                     <div class="s6-info3">
@@ -323,6 +331,7 @@
                 </div>
             </div>
         </div>
+
         <div class="section7">
             <div class="parent7">
                 <div class="wrapper7">
@@ -362,6 +371,7 @@
                 </div>
             </div>
         </div>
+
         <section class="sec-8">
             <div class="parent8">
                 <div class="info-s8">
@@ -387,7 +397,6 @@
                         <span>Fire <span class="s8-grill">Gril</span></span>
                     </div>
                 </article>
-
                 <aside>
                     <ul>
                         <li class="liii">shop meat</li>
@@ -429,11 +438,12 @@
             </main>
             <h6></h6>
             <footer>
-                Copyright &copy; 2025 All right |
-                <span class="s8-colo">Khaled | Mohamed | Ahmed</span>
+                &copy; Made By
+                <span class="s8-colo">This Team</span>
             </footer>
         </section>
-                <button
+
+        <button
             id="toTop"
             style="
                 display: none;
