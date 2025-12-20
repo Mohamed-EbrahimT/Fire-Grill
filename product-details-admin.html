@@ -16,13 +16,11 @@
 <div class="main">
   <div class="details">
     
-    <!-- IMAGE GALLERY -->
     <div class="gallery">
       <img id="mainImage" src="https://via.placeholder.com/600">
       <div class="thumbs" id="thumbs"></div>
     </div>
 
-    <!-- INFO -->
     <div class="details-info" id="info"></div>
 
   </div>
@@ -35,7 +33,6 @@ const id = new URLSearchParams(location.search).get("id");
 (async () => {
   const p = await getProduct(id);
 
-  // ✅ FIX: use imagesURL (exact backend name)
   const images = p.imagesURL;
 
   if (!images || images.length === 0) {
@@ -43,17 +40,14 @@ const id = new URLSearchParams(location.search).get("id");
     return;
   }
 
-  // MAIN IMAGE
   const mainImage = document.getElementById("mainImage");
   mainImage.src = images[0];
   mainImage.style.display = "block";
 
-  // THUMBNAILS
   document.getElementById("thumbs").innerHTML = images.map(img => `
     <img src="${img}" onclick="changeImage('${img}')">
   `).join("");
 
-  // INFO
   document.getElementById("info").innerHTML = `
     <h2>${p.name}</h2>
     <p>Price: $${p.price}</p>
